@@ -1,0 +1,33 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" routerLink="/home">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <div class="navbar-user">
+                    <div *ngIf="user['foto']; else elseBlock">
+                        <img class="" src={{user.foto}} alt="" >
+                    </div>   
+                    <ng-template #elseBlock>
+                        <img class="" src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" alt="" >
+                    </ng-template>                 
+                    <p>{{user['nombre']}}</p>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <input type="text" class="form-control" (change)="subirFoto()" #foto placeholder="Subir foto">
+                      <button class="dropdown-item" (click)="logOut()"><i class="fas fa-sign-out-alt mr-3"></i>Cerrar Seccion</button>                      
+                    </div>
+                  </div>
+            </div>
+            
+        </div>            
+    </div>
+</nav>
+

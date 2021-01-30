@@ -1,0 +1,76 @@
+<section>
+    <div class="col-5 mx-auto mt-5 mb-5 border p-4 card-form">
+        <h2 class="mb-3">Editar producto</h2>
+        <form [formGroup]="myForm">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input formControlName="nombre" type="text" class="form-control">
+                <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                    <span class="text-danger">*El nombre es requerido*</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Caracteristicas</label>
+                <textarea formControlName="caracteristicas" type="text" class="form-control" rows="3"></textarea>
+                <div *ngIf="caracteristicas.invalid && (caracteristicas.dirty || caracteristicas.touched)">
+                    <span class="text-danger">*Las caracteristicas son requeridas*</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Fecha de lanzamiento</label>
+                <input formControlName="fecha" type="date" class="form-control">
+                <div *ngIf="fecha.invalid && (fecha.dirty || fecha.touched)">
+                    <span class="text-danger">*La fecha es requerida*</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Correo del fabricante</label>
+                <input formControlName="correoFabricante" type="email" class="form-control">
+                <div *ngIf="correoFabricante.invalid && (correoFabricante.dirty || correoFabricante.touched)">
+                    <span class="text-danger" *ngIf="correoFabricante.errors.required">*El correo es requerido*</span>
+                    <span class="text-danger" *ngIf="correoFabricante.errors.email">*El correo no es valido*</span>
+                </div>
+            </div>
+            <div>
+                <label>Pais de fabricacion</label>
+                <select class="form-control" name="" #paisFabricacion>
+                    <option *ngFor="let pais of paisList" value={{pais}}>{{pais}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Precio</label>
+                <input formControlName="precio" type="number" class="form-control">
+                <div *ngIf="precio.invalid && (precio.dirty || precio.touched)">
+                    <span class="text-danger">*El precio es requerido*</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Unidades vendidas</label>
+                <input formControlName="unidadesVendidas" type="number" class="form-control">
+                <div *ngIf="unidadesVendidas.invalid && (unidadesVendidas.dirty || unidadesVendidas.touched)">
+                    <span class="text-danger">*Las unidades vendidas son requeridas*</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Unidades disponibles</label>
+                <input formControlName="unidadesDisponibles" type="number" class="form-control">
+                <div *ngIf="unidadesDisponibles.invalid && (unidadesDisponibles.dirty || unidadesDisponibles.touched)">
+                    <span class="text-danger">*Las unidades dispnibles son requeridas*</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Imagen (url)</label>
+                <input formControlName="imagen" type="text" class="form-control">
+                <div *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)">
+                    <span class="text-danger">*La fecha es requeridad*</span>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mt-4">
+                <button class="btn btn-danger mr-3" (click)="cerrar()" type="submit">Cancelar</button>
+                <button class="btn btn-primary" type="submit" [disabled]="!myForm.valid"
+                    (click)="editarProducto()">Editar</button>
+            </div>
+        </form>
+    </div>
+</section>

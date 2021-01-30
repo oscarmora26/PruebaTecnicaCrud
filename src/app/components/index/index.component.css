@@ -1,0 +1,16 @@
+i {
+  font-size: 24px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.filter p {
+    margin-bottom: 5px;
+}
+.btn{
+    height: 38px;
+}
+/* .table thead{
+  background-color: #1E213A;
+  color: white;
+} */

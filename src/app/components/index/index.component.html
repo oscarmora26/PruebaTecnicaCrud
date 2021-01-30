@@ -1,0 +1,59 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between">
+    <div class="d-flex align-items-end">
+      <a class="btn btn-primary m-0" routerLink="/home/nuevo">Agregar producto</a>
+    </div>    
+    <div class="filter d-flex">
+      <div>
+        <p>Ordenar Por</p>
+        <select class="form-control" name="" (change)="orderChange()" #orderBy>
+          <option value=""></option>
+          <option value="nombre">Nombre</option>
+          <option value="fecha">Fecha lanzamiento</option>
+          <option value="correoFabricante">Correo Fabricante</option>
+          <option value="paisFabricacion">Pais fabicacion</option>
+        </select>
+      </div>
+      <div class="ml-3">
+        <p>Filtrar por</p>
+        <div class="d-flex">
+          <select class="form-control" #filter  name="" id="" >
+            <option value=""></option>
+            <option value="nombre">Nombre</option>
+            <option value="correoFabricante">Correo Fabricante</option>
+          </select>
+          <input type="text" class="form-control" (change)="filterChange()" #filterText>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table mt-3">
+    <thead class="thead-dark">
+      <tr>
+        <th>Nombre</th>
+        <th>Fecha de lanzamiento</th>
+        <th>Correo Fabricante</th>
+        <th>Pais de fabricacion</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productosList | paginate: { itemsPerPage: 8, currentPage: pageActual }">
+        <td>{{producto.nombre | shortText}}</td>
+        <td>{{producto.fecha | date}} </td>
+        <td>{{producto.correoFabricante}}</td>
+        <td>{{producto.paisFabricacion}}</td>
+        <th>
+          <a routerLink="/home/detalle/{{producto.id}}" data-toggle="tooltip" data-placement="top"
+            title="Ver producto"><i class="fas fa-eye text-primary"></i></a>
+          <a routerLink="/home/editar/{{producto.id}}" data-toggle="tooltip" data-placement="top"
+            title="Editar producto"><i class="fas fa-edit text-success"></i></a>
+          <a (click)="deleteProducto(producto.id)" data-toggle="tooltip" data-placement="top"
+            title="Eliminar producto"><i class="fas fa-trash-alt text-danger"></i></a>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+</div>

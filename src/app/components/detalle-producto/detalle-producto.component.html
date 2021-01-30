@@ -1,0 +1,42 @@
+<section class="container mt-4 mb-5">
+    <div class="row col-12 mx-auto" *ngIf="producto">
+        <div class="col-9 col-md-6 col-xl-5">
+            <img src={{producto.imagen}} alt="">
+        </div>
+        <div class="col-6">
+            <div class="mt-3 valores">
+                <p>Nombre</p>
+                <p>{{producto.nombre}}</p>
+            </div>
+            <div class="valores">
+                <p>Caracteristicas</p>
+                <p>{{producto.caracteristicas}}</p>
+            </div>
+            <div class="valores">
+                <p>Fecha de lanzamiento</p>
+                <p>{{producto.fecha |date}}</p>
+            </div>
+            <div class="valores">
+                <p>Correo del fabricante</p>
+                <p>{{producto.correoFabricante}}</p>
+            </div>
+            <div class="valores">
+                <p>Pais de fabricacion</p>
+                <p>{{producto.paisFabricacion}}</p>
+            </div>
+            <div class="valores">
+                <p>Precio</p>
+                <p>{{producto.precio |currency}}</p>
+            </div>
+            <div class="valores">
+                <p>Unidades disponibles</p>
+                <p>{{producto.unidadesDisponibles}}</p>
+            </div>
+            <div class="valores">
+                <p>Unidades vendidas</p>
+                <p>{{producto.unidadesVendidas}}</p>
+            </div>
+        </div>
+    </div>
+    <a routerLink="/home">Ir atras</a>
+</section>

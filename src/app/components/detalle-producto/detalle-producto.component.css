@@ -1,0 +1,17 @@
+img{
+    width: 95%;
+    border-radius: 10px;
+}
+
+.valores{
+    /* line-height: 15px; */
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.valores p:first-child{
+    font-weight: 500;
+}
+p{
+    margin-bottom: 5px;
+}
