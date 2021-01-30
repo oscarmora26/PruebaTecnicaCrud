@@ -10,8 +10,6 @@
           <option value=""></option>
           <option value="nombre">Nombre</option>
           <option value="fecha">Fecha lanzamiento</option>
-          <option value="correoFabricante">Correo Fabricante</option>
-          <option value="paisFabricacion">Pais fabicacion</option>
         </select>
       </div>
       <div class="ml-3">
@@ -39,7 +37,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let producto of productosList | paginate: { itemsPerPage: 8, currentPage: pageActual }">
+      <tr *ngFor="let producto of productosList | paginate: { itemsPerPage: 9, currentPage: pageActual }">
         <td>{{producto.nombre | shortText}}</td>
         <td>{{producto.fecha | date}} </td>
         <td>{{producto.correoFabricante}}</td>

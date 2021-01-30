@@ -37,7 +37,7 @@ export class ProductoService {
     let contador = 0
     let indexOfArray = 0
     this.productoList.forEach((p) => {
-      if (p.id == 2) indexOfArray = contador
+      if (p.id == producto.id) indexOfArray = contador
       contador++
     })
     this.productoList.splice(indexOfArray, 1, producto)
